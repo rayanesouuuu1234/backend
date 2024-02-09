@@ -50,7 +50,7 @@ class UserAPI:
             ''' #2: Key Code block to add user to database '''
             # create user in database
             user = uo.create()
-            # success returns json of user
+            # success returns json of users
             if user:
                 return jsonify(user.read())
             # failure returns error
