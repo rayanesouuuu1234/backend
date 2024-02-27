@@ -14,8 +14,8 @@ api = Api(user_api)
 
 class UserAPI:        
     class _CRUD(Resource):  # User API operation for Create, Read.  THe Update, Delete methods need to be implemeented
-        @token_required
-        def post(self, current_user): # Create method
+        # @token_required
+        def post(self): #current_user): # Create method
             ''' Read data for json body '''
             body = request.get_json()
             
@@ -61,6 +61,7 @@ class UserAPI:
             users = User.query.all()    # read/extract all users from database
             json_ready = [user.read() for user in users]  # prepare output in json
             return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
+    
     
     class _Security(Resource):
         def post(self):
