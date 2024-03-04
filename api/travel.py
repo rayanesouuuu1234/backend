@@ -20,9 +20,10 @@ class TravelAPI:
             language = body.get('language')
             time_zone = body.get('time_zone')
             weather = body.get('weather')
+            travel_type = body.get('travel_type')  # Extract travel_type
 
             # Create a new travel object
-            travel_obj = Travel(destination=destination, language=language, time_zone=time_zone, weather=weather)
+            travel_obj = Travel(destination=destination, language=language, time_zone=time_zone, weather=weather, travel_type=travel_type)  # Include travel_type
 
             # Add travel destination to database
             travel = travel_obj.create()
@@ -47,3 +48,4 @@ class TravelAPI:
 # Building REST API resources/interfaces, these routes are added to the Web Server
 api.add_resource(TravelAPI.Create, '/create')
 api.add_resource(TravelAPI.Read, '/')
+
